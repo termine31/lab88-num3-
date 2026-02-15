@@ -4,6 +4,11 @@
 #include <iostream>
 
 using namespace std; 
+struct spisok {
+	int data;
+	spisok* next;
+	spisok* back;
+};
 int main()
 {
 	// Упражнение 3(1)
@@ -98,4 +103,44 @@ int main()
 	delete[] mass1;
 	delete[] mass2;
 	delete[] mass3;
+
+	cout << "-----------------------------------------------------------------\n";
+	// ЗАДАНИЕ 4 
+	spisok* head;
+	spisok* posled;  // указатели
+	spisok* current;
+	head = new spisok;
+	head->data = 1; // 1 элемент списка
+	head->next = nullptr; // следующий пока пустой 
+	head->back = nullptr; // предыдущий тоже
+	posled = head;
+	current = head;
+	// Создаём с 2 - 10 
+	for (int i = 2; i <= 10; i++) {
+		spisok* newc = new spisok;
+		newc->data = i;
+		newc->next = nullptr;
+
+		newc->back = current;
+		current->next = newc;
+
+		current = newc;
+		posled = newc;
+	}
+		cout << "Вывод списка от 1 до 10: ";
+		current = head;
+		while (current != nullptr) {
+			cout << current->data;
+			if (current->next != nullptr) {
+				cout << " | ";
+			}
+			current = current->next;
+	}
+
+
+
+
+
+
+
 }
