@@ -4,6 +4,7 @@
 #include <iostream>
 
 using namespace std; 
+void summa(int& a, int* b, int c);
 struct spisok {
 	int data;
 	spisok* next;
@@ -133,17 +134,26 @@ int main()
 		cout << "Вывод списка от 1 до 10: ";
 		current = head;
 		while (current != nullptr) {
-			cout << current->data;
-			if (current->next != nullptr) {
-				cout << " | ";
-			}
+			cout << current->data << " | ";
 			current = current->next;
 	}
+		cout << endl << endl;
+
+// 2 Упражнение 2 задание
+		cout << "-----------------------------------------------------------------\n";
+		cout << "2 УПРАЖНЕНИЕ\n";
 		cout << endl;
+		cout << "Введите a,b,c: ";
+		int a, b, c;
+		cin >> a >> b >> c; 
+		summa(a, &b, c);
+		cout << " A: " << a;
+		cout << " B: " << b; 
 
 
-
-
-
-
+}
+// 2 УПРАЖНЕНИЕ 2 ЗАДАНИЕ
+void summa(int& a, int* b, int c) {
+	a = a + c;
+	*b = *b + c;
 }
